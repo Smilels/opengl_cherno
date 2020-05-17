@@ -52,7 +52,7 @@ int main(void)
                 -0.5f, -0.5f, 0.0f, 0.0f, //0
                 0.5f, -0.5f, 1.0f, 0.0f, //1
                 0.5f, 0.5f, 1.0f, 1.0f, //2
-                -0.5f, 0.5f, 0.0f, 1.0f //3
+                -0.5f, 0.5f, 0.0f, 1.0f//3
         };
 
         // index buffer
@@ -61,14 +61,15 @@ int main(void)
                 2, 3, 0
         };
 
+        // these 6 values are x,y, z left most and rightmost boundaries
         glm::mat4 proj = glm::ortho(-1.0f, 1.0f, -1.5f, 1.5f, -1.0f, 1.0f);
 
         // blending determines how we combine our output color with what is already in our target buffer
         // out =  the color we output from our fragment shader (know as source)
         // target buffer =  the buffer our fragment shader is drawing to (known as destination)
-        GLCall(glEnable(GL_BLEND));
+//        GLCall(glEnable(GL_BLEND));
         // glBlendFunc(src, dest)
-        GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+//        GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
         // glBendEquation(mode) mode = how we combine the src and dest; default value is GL_FUNC_ADD
         // if the pixel we're rendering from our texture is transparent, then src alpha =0, dest = 1
 
@@ -86,7 +87,7 @@ int main(void)
         IndexBuffer ib(indices, 6);
         ib.Bind();
 
-        Shader shader("/homeL/demo/ros_workspace/opengl_ws/src/opengl_cherno/res/shaders/uniform.shader");
+        Shader shader("/homeL/demo/ros_workspace/opengl_ws/src/opengl_cherno/res/shaders/uniform_texture.shader");
         shader.Bind();
         shader.SetUniform4f("u_Color", 1.0f, 0.5f, 0.5f, 1.0f);
 //        shader.SetUniformMat4f("u_MVP", proj);

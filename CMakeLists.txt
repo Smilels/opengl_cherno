@@ -35,8 +35,8 @@ target_link_libraries(uniform -lGL -lEGL -lGLEW -lglfw)
 add_executable(vertex_array src/vertex_array.cpp)
 target_link_libraries(vertex_array -lGL -lEGL -lGLEW -lglfw)
 
-add_executable(abstracting
-        src/abstracting.cpp
+add_executable(application
+        src/application.cpp
         src/VertexArray.cpp
         src/IndexBuffer.cpp
         src/VertexBuffer.cpp
@@ -45,4 +45,4 @@ add_executable(abstracting
         vendor/stb_image/stb_image.h
         vendor/stb_image/stb_image.cpp
         src/Texture.cpp)
-target_link_libraries(abstracting -lGL -lEGL -lGLEW -lglfw -glm)
+target_link_libraries(application -lGL -lEGL -lGLEW -lglfw -glm)
